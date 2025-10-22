@@ -1,0 +1,61 @@
+MODELO BASE SIMPLE - BASELINE DE REFERENCIA
+==========================================
+
+Fecha creación: 2025-10-21 19:54:49.350565
+Tipo: Random Forest SIMPLE (sin scaling)
+Tiempo entrenamiento: ~30-60 segundos
+
+CONFIGURACIÓN:
+  - Algoritmo: Random Forest
+  - n_estimators: 100
+  - max_depth: 15
+  - min_samples_split: 5
+  - min_samples_leaf: 2
+  - max_features: sqrt
+  - Precisión: 0.7699 (76.99%)
+  - Sin normalización (valores originales)
+
+CARACTERÍSTICAS (8 básicas):
+  1. LATITUD
+  2. LONGITUD
+  3. HORA
+  4. DIA_SEMANA
+  5. MES
+  6. ANO
+  7. LOCALIDAD_COD
+  8. CLASE_ACC_COD
+
+IMPORTANCIA:
+  1. CLASE_ACC_COD  : 0.6250 (62.5%)
+  2. LATITUD        : 0.1092 (10.9%)
+  3. LONGITUD       : 0.0997 (10.0%)
+  4. HORA           : 0.0583 (5.8%)
+  5. MES            : 0.0317 (3.2%)
+  6. ANO            : 0.0281 (2.8%)
+  7. DIA_SEMANA     : 0.0255 (2.5%)
+  8. LOCALIDAD_COD  : 0.0225 (2.3%)
+
+CLASIFICACIÓN:
+              precision    recall  f1-score   support
+
+  SOLO DANOS       0.88      0.40      0.55     13517
+ CON HERIDOS       0.00      0.00      0.00       645
+ CON MUERTOS       0.75      0.98      0.85     25560
+
+    accuracy                           0.77     39722
+   macro avg       0.54      0.46      0.47     39722
+weighted avg       0.78      0.77      0.74     39722
+
+ARCHIVOS:
+  - modelo_base_rf.pkl (modelo principal)
+  - le_localidad_base.pkl (encoder localidades)
+  - le_clase_acc_base.pkl (encoder tipos accidente)
+  - le_gravedad_base.pkl (encoder gravedades)
+  - SIN scaler (Random Forest no necesita normalización)
+
+USO:
+  - Modelo BASELINE de referencia
+  - Comparar con modelos avanzados
+  - Entrenamiento: 30-60 segundos
+  - Baseline: ~77.0%
+  - Simple y efectivo para datos tabulares

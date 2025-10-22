@@ -1,0 +1,77 @@
+# Python - archivos generados automáticamente
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Variables de entorno - NUNCA subir secretos
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs - configuraciones personales
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs y archivos temporales
+*.log
+logs/
+*.tmp
+*.temp
+
+# Machine Learning - archivos grandes
+*.pkl
+*.joblib
+models/*.pkl
+models/*.joblib
+data/
+datasets/
+
+# Docker
+.dockerignore
+
+# Kubernetes - archivos con secretos
+secrets/
+*.secret.yaml
+
+# Coverage y testing
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+.pytest_cache/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints
