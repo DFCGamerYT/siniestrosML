@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: siniestros-ml-config
+data:
+  APP_NAME: "{{ .Values.config.APP_NAME }}"
+  APP_VERSION: "{{ .Values.config.APP_VERSION }}"
+  DEBUG: "{{ .Values.config.DEBUG }}"
+  HOST: "{{ .Values.config.HOST }}"
+  PORT: "{{ .Values.config.PORT }}"
+  ML_MODEL_PATH: "{{ .Values.config.ML_MODEL_PATH }}"
+  PREDICTION_CONFIDENCE_THRESHOLD: "{{ .Values.config.PREDICTION_CONFIDENCE_THRESHOLD }}"
