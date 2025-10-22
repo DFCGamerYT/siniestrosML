@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/DFCGamerYT/siniestrosML.git'
+                git branch: 'main', url: 'https://github.com/DFCGamerYT/siniestrosML.git'
             }
         }
         stage('Build Docker Image') {
