@@ -52,9 +52,9 @@ logs/
 *.temp
 
 # Machine Learning - archivos grandes
-*.pkl
+#*.pkl
 *.joblib
-models/*.pkl
+#models/*.pkl
 models/*.joblib
 data/
 datasets/
@@ -76,5 +76,6 @@ coverage.xml
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints
 
-# Ignorar comandos
+# Ignorar archivos de trabajo
 comandos_docker.txt
+errores.txt
