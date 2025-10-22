@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Deploy with Helm') {
             steps {
-                sh "helm upgrade --install siniestros-ml ./siniestros-ml-chart --set image.tag=${env.BUILD_NUMBER}"
+                bat "helm upgrade --install siniestros-ml ./siniestros-ml-chart --set image.tag=${env.BUILD_NUMBER}"
             }
         }
     }
