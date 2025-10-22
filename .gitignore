@@ -52,9 +52,9 @@ logs/
 *.temp
 
 # Machine Learning - archivos grandes
-#*.pkl
+*.pkl
 *.joblib
-#models/*.pkl
+models/*.pkl
 models/*.joblib
 data/
 datasets/
