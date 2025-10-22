@@ -146,8 +146,6 @@ def create_app() -> FastAPI:
         - `POST /ml/predecir` - **Predicción principal de gravedad**
         - `GET /health` - Health check para K8s probes
         - `GET /health/metrics` - Métricas detalladas del sistema
-        - `GET /ml/valores/localidades` - Localidades disponibles
-        - `GET /ml/valores/tipos-siniestro` - Tipos de siniestro válidos
         
         ### 🎯 Tipos de Gravedad Predichos:
         - **SOLO DANOS** - Siniestros con daños materiales únicamente
