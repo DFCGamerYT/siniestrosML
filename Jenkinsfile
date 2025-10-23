@@ -4,15 +4,6 @@ pipeline {
         DOCKER_IMAGE = "mrraiikiri/siniestros-ml:${env.BUILD_NUMBER}"
     }
     stages {
-        stage('Descargar modelo ML') {
-            steps {
-                bat '''
-                if not exist models\\modelo_base_rf.pkl (
-                    python -m gdown --id 12AR12tQjeVdBDz7aPys8716uelsQbjGX -O models\\modelo_base_rf.pkl
-                )
-                '''
-            }
-        }
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/DFCGamerYT/siniestrosML.git'
