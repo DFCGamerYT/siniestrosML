@@ -26,6 +26,7 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 RUN ls -l
 
+RUN mkdir -p models
 # Descargar modelo desde Google Drive
 RUN python -m gdown --id 12AR12tQjeVdBDz7aPys8716uelsQbjGX -O models/modelo_base_rf.pkl
 
