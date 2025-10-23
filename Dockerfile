@@ -24,6 +24,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
+RUN ls -l
+
 # Descargar modelo desde Google Drive
 RUN python -m gdown --id 12AR12tQjeVdBDz7aPys8716uelsQbjGX -O models/modelo_base_rf.pkl
 
