@@ -29,6 +29,9 @@ RUN ls -l
 RUN mkdir -p models
 # Descargar modelo desde Google Drive
 RUN python -m gdown --id 12AR12tQjeVdBDz7aPys8716uelsQbjGX -O models/modelo_base_rf.pkl
+RUN python -m gdown --id 1t_utRXIEub1gbqHoET1hoi_43LE7L2v8 -O models/le_clase_acc_base.pkl
+RUN python -m gdown --id 1joITG2gY8t0Dmz7reMi2eK5f_2m_E-SE -O models/le_gravedad_base.pkl
+RUN python -m gdown --id 12AR12tQjeVdBDz7aPys8716uelsQbjGX -O models/le_localidad_base.pkl
 
 # Copiar código fuente y modelos
 COPY app/ ./app/
