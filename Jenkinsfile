@@ -52,9 +52,9 @@ pipeline {
             steps {
                 // PowerShell para reemplazar la línea del tag en values.yaml
                 powershell """
-                    (Get-Content "${env.VALUES_PATH}") -replace '(^\\s*tag:\\s*).+', "`$1${env.IMAGE_TAG}" | Set-Content "${env.VALUES_PATH}"
+                    (Get-Content "${VALUES_PATH}") -replace '(^\\s*tag:\\s*).+', "`$1${IMAGE_TAG}" | Set-Content "${VALUES_PATH}"
                     Write-Host '>>> Diff:'
-                    git --no-pager diff -- "${env.VALUES_PATH}"
+                    git --no-pager diff -- "${VALUES_PATH}"
                 """
             }
         }
