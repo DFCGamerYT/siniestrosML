@@ -44,7 +44,7 @@ pipeline {
                 powershell '''
                     $path = "${env:VALUES_PATH}"
                     $tag  = "${env:IMAGE_TAG}"
-                    (Get-Content $path) -replace '(^\\s*tag:\\s*).*', "tag: $tag" | Set-Content $path
+                    (Get-Content $path) -replace '(^\\s*tag:\\s*).*', "  tag: $tag" | Set-Content $path
                     Write-Host ">>> Diff:"
                     git --no-pager diff -- "$path"
                 '''
