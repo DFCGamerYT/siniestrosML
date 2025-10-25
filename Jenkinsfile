@@ -57,9 +57,9 @@ pipeline {
                     git add "${VALUES_PATH}"
                     git commit -m "[skip ci] chore(helm): bump image tag to ${IMAGE_TAG}" || echo "No hay cambios que commitear"
                 """
-                withCredentials([string(credentialsId: 'github-pat', variable: 'GIT_PAT')]) {
+                withCredentials([string(credentialsId: 'github-path', variable: 'GIT_PATH')]) {
                     bat """
-                        git remote set-url origin https://${GIT_PAT}@github.com/${GITHUB_REPO}.git
+                        git remote set-url origin https://${GIT_PATH}@github.com/${GITHUB_REPO}.git
                         git push origin HEAD:${MAIN_BRANCH}
                     """
                 }
