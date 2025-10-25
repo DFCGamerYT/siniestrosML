@@ -40,27 +40,14 @@ pipeline {
         }
 
         stage('Bump Helm tag in values.yaml') {
-
             steps {
-
                 powershell '''
-
-                    (Get-Content "${env:VALUES_PATH}") `
-
-                    -replace '(^\\s*tag:\\s*).+', "${1}${env:IMAGE_TAG}" |
-
-                    Set-Content "${env:VALUES_PATH}"
-        
+                    (Get-Content "${env:VALUES_PATH}") -replace '(^\s*tag:\s*).*', 'tag: ${env:IMAGE_TAG}' | Set-Content "${env:VALUES_PATH}"
                     Write-Host ">>> Diff:"
-
                     git --no-pager diff -- "${env:VALUES_PATH}"
-
                 '''
-
             }
-
         }
-        
  
         stage('Commit & Push change') {
             steps {
