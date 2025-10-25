@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: siniestros-ml
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: siniestros-ml

@@ -39,41 +39,38 @@ pipeline {
         }
 
         stage('Push Docker Image') {
-            environment {
-                DOCKERHUB_USER = credentials('docker-hub-credentials_USR')
-                DOCKERHUB_PASS = credentials('docker-hub-credentials_PSW')
-            }
             steps {
-                sh """
-                  echo "${DOCKERHUB_PASS}" | docker login -u "${DOCKERHUB_USER}" --password-stdin
-                  docker push ${DOCKER_IMAGE}
-                """
+                script {
+                    docker.withRegistry('', 'docker-hub-credentials') {
+                        dockerImage.push()
+                    }
+                }
             }
         }
-
+ 
         stage('Bump Helm tag in values.yaml') {
             steps {
-                sh """
-                  sed -i -E 's/^(\\s*tag:\\s*).*/\\1${IMAGE_TAG}/' "${VALUES_PATH}"
-
-                  echo ">>> Diff:"
-                  git --no-pager diff -- "${VALUES_PATH}"
+                // PowerShell para reemplazar la línea del tag en values.yaml
+                powershell """
+                    (Get-Content "${env.VALUES_PATH}") -replace '(^\\s*tag:\\s*).+', "`$1${env.IMAGE_TAG}" | Set-Content "${env.VALUES_PATH}"
+                    Write-Host '>>> Diff:'
+                    git --no-pager diff -- "${env.VALUES_PATH}"
                 """
             }
         }
-
+ 
         stage('Commit & Push change') {
             steps {
-                sh """
-                  git config user.name  "${GIT_USER_NAME}"
-                  git config user.email "${GIT_USER_MAIL}"
-                  git add "${VALUES_PATH}"
-                  git commit -m "[skip ci] chore(helm): bump image tag to ${IMAGE_TAG}"
+                bat """
+                    git config user.name  "${GIT_USER_NAME}"
+                    git config user.email "${GIT_USER_MAIL}"
+                    git add "${VALUES_PATH}"
+                    git commit -m "[skip ci] chore(helm): bump image tag to ${IMAGE_TAG}" || echo "No hay cambios que commitear"
                 """
                 withCredentials([string(credentialsId: 'github-pat', variable: 'GIT_PAT')]) {
-                    sh """
-                      git remote set-url origin https://${GIT_PAT}@github.com/${GITHUB_REPO}.git
-                      git push origin HEAD:${MAIN_BRANCH}
+                    bat """
+                        git remote set-url origin https://${GIT_PAT}@github.com/${GITHUB_REPO}.git
+                        git push origin HEAD:${MAIN_BRANCH}
                     """
                 }
             }
