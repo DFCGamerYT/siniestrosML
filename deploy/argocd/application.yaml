@@ -11,7 +11,7 @@ spec:
     path: 'siniestros-ml-chart'
     helm:
       valueFiles:
-        - values.yaml
+        - siniestros-ml-chart/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: siniestros-ml
