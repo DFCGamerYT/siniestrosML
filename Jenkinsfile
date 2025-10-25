@@ -21,6 +21,15 @@ pipeline {
             }
         }
 
+        stage('Unit Tests') {
+            steps {
+                script {
+                    sh "pip install pytest pytest-mock"
+                    sh "pytest app"
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
