@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: env.MAIN_BRANCH, url: "https://github.com/${env.GITHUB_REPO}.git"
+                git 'https://github.com/DFCGamerYT/siniestrosML.git'
             }
         }
 
