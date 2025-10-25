@@ -55,7 +55,10 @@ pipeline {
                     git config user.name  "${GIT_USER_NAME}"
                     git config user.email "${GIT_USER_MAIL}"
                     git add "${VALUES_PATH}"
-                    git commit -m "[skip ci] chore(helm): bump image tag to ${IMAGE_TAG}" || echo "No hay cambios que commitear"
+                    git commit -m "[skip ci] chore(helm): bump image tag to ${IMAGE_TAG}" || (
+                    echo "No hay cambios que commitear"
+                    exit /b 0
+                    )
                 """
                 withCredentials([string(credentialsId: 'github-path', variable: 'GIT_PATH')]) {
                     bat """
