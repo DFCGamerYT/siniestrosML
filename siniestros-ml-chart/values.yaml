@@ -1,6 +1,6 @@
 image:
   repository: mrraiikiri/siniestros-ml
-  tag: 65
+  tag: 66
   pullPolicy: IfNotPresent
 
 service:
