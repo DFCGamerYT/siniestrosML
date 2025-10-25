@@ -24,8 +24,8 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 script {
-                    sh "pip install pytest pytest-mock"
-                    sh "pytest app"
+                    bat "pip install pytest pytest-mock"
+                    bat "pytest app"
                 }
             }
         }
