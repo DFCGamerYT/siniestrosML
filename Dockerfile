@@ -49,5 +49,8 @@ EXPOSE $PORT
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:$PORT/health || exit 1
 
+RUN pytest app
+
+
 # Comando flexible que usa variables de entorno
 CMD ["sh", "-c", "uvicorn app.main:app --host $HOST --port $PORT"]
