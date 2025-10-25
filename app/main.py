@@ -141,6 +141,7 @@ def create_app() -> FastAPI:
         - 📈 **Logging estructurado** para observabilidad
         - 🔒 **Validación robusta** con Pydantic
         - 🐳 **Docker ready** para contenedores
+        - 🐳 **ArgoCD** para contenedores
         
         ### 📡 Endpoints Principales:
         - `POST /ml/predecir` - **Predicción principal de gravedad**
